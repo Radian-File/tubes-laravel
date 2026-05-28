@@ -1,28 +1,19 @@
 {
-  "version": 2,
-  "buildCommand": "composer install --no-dev --optimize-autoloader --ignore-platform-reqs && npm install && npm run build",
-  "outputDirectory": ".",
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.0"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
   },
-  "routes": [
-    {
-      "src": "/build/(.*)",
-      "dest": "/public/build/$1"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/public/favicon.ico"
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "/public/robots.txt"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
-  ]
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "axios": "^1.8.2",
+    "concurrently": "^9.0.1",
+    "laravel-vite-plugin": "^1.2.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.2.4"
+  },
+  "engines": {
+    "node": "24.x"
+  }
 }
