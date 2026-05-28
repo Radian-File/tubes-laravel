@@ -17,4 +17,16 @@ require __DIR__.'/../vendor/autoload.php';
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+if (! $app->bound('files')) {
+    $app->register(Illuminate\Filesystem\FilesystemServiceProvider::class);
+}
+
+if (! $app->bound('translator')) {
+    $app->register(Illuminate\Translation\TranslationServiceProvider::class);
+}
+
+if (! $app->bound('view')) {
+    $app->register(Illuminate\View\ViewServiceProvider::class);
+}
+
 $app->handleRequest(Request::capture());
